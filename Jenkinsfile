@@ -9,4 +9,5 @@ pipeline {
         sh 'docker build -t abimimi-alpine .'
       }
     }
+  }
 }
