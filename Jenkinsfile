@@ -1,7 +1,7 @@
 pipeline {
-  agent any
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('aliyoubinate-dockerhub')
+  stage('Initialize'){
+        def dockerHome = tool 'MyDockerForPipeline'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
   }
   stages {
     stage('Build') {
