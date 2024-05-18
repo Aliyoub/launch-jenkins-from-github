@@ -1,10 +1,12 @@
 pipeline {
-   agent any
-    stages {
-        stage('lauch jenkins from github') {
-            steps {
-                echo 'lauch jenkins from github !!!'
-            }
-        }    
+  agent { label 'linux' }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('aliyoubinate-dockerhub')
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'docker build -t abimimi-alpine .'
+      }
     }
 }
